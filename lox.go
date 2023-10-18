@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -16,6 +17,18 @@ func runPrompt() {
 		//run(scanner.Text)
 	}
 }
+
+func runFile(path string) {
+	file, err := os.ReadFile(path)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf(string(file))
+	//TODO:
+	//run(file)
+
+}
 func main() {
 	var numArgs = len(os.Args)
 	switch numArgs {
@@ -24,7 +37,7 @@ func main() {
 		runPrompt()
 	case 2:
 		//TODO:
-		//displayHelp()
+		runFile(os.Args[1])
 	default:
 		//TODO:
 		//help()
