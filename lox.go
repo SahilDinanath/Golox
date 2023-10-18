@@ -1,22 +1,31 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 )
 
-func main() {
-	fmt.Println(len(os.Args))
+func runPrompt() {
+	scanner := bufio.NewScanner(os.Stdin)
 
+	fmt.Printf(">")
+	for scanner.Scan() {
+		fmt.Printf(">")
+		//TODO:
+		//run(scanner.Text)
+	}
+}
+func main() {
 	var numArgs = len(os.Args)
 	switch numArgs {
 	case 1:
-	//TODO:
-	//runPrompt()
+		//TODO:
+		runPrompt()
 	case 2:
 		//TODO:
 		//displayHelp()
-	case 3:
+	default:
 		//TODO:
 		//help()
 	}
